@@ -3,6 +3,7 @@
 		<select v-model="$i18n.locale" @change="updateURL">
 			<option v-for="lang in languages" v-bind:key="lang">{{lang}}</option>
 		</select>
+		locale: {{$t('message')}} <!-- TODO: fix translations to come from file-->
 	</div>
 </template>
 
@@ -24,6 +25,17 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style scoped lang="scss">
+
+.languageSelector {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	justify-content: space-around;
+
+	select {
+		width: fit-content;
+	}
+}
 
 </style>

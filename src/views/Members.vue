@@ -1,15 +1,25 @@
 <template>
   <div class="header">
-    Member
+    {{ members }}
   </div>
 </template>
 
 <script>
+import Members from '../services/members.js';
+
 export default {
-  name: 'Header',
-  props: {
-    msg: String
-  }
+	name: 'Header',
+	props: {
+		msg: String
+	},
+	data() {
+		return {
+			members: []
+	}	
+	},
+	async created() {
+		this.members = await Members.getAll();
+	}
 }
 </script>
 

@@ -25,12 +25,11 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style scoped lang="scss">
 
-.header div{
-	display: inline-block;
-
-	
+.header {
+	display: flex;
+    justify-content: space-between;
 }
 
 </style>
