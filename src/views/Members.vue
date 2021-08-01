@@ -12,17 +12,20 @@
 			<th>{{member.email}}</th>
 		</tr>
 	</table>
-	
+
+	<Pagination @goto="gotoPage" :currentPage="currentPage" :maxPage="maxPage" />
+
 </div>
 </template>
 
 <script>
 import Members from '../services/members.js';
+import Pagination from '../components/Pagination.vue';
 
 export default {
-	name: 'Header',
-	props: {
-		msg: String
+	name: 'Members',
+	components: {
+		Pagination
 	},
 	data() {
 		return {
@@ -31,12 +34,20 @@ export default {
 			rowsPerPage: 10
 		}
 	},
+	methods: {
+		gotoPage(pageNumber) {
+			this.currentPage = pageNumber;
+		}
+	},
 	async created() {
 		this.members = await Members.getAll();
 	},
 	computed: {
 		displayedMembers() {
-			return this.members.slice(this.currentPage * this.rowsPerPage, (this.currentPage + 1) * this.rowsPerPage)
+			return this.members.slice((this.currentPage - 1) * this.rowsPerPage, this.currentPage * this.rowsPerPage)
+		},
+		maxPage() {
+			return Math.trunc(this.members.length / 10);
 		}
 	}
 }
@@ -46,7 +57,8 @@ export default {
 <style scoped lang="scss">
 .header {
 	display: flex;
-	justify-content: center;
+	flex-direction: column;
+	align-items: center;
 }
 .headerRow th {
 	font-size: 20px;

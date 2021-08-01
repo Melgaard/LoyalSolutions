@@ -7,6 +7,6 @@ export default {
 	},
 	async signup(member) {
 		const res = await axios.post(`https://run.mocky.io/v3/029be3b9-c4d0-42c9-b348-dc2b575e3312`, member);
-		return res.data;
+		return res;
 	}
 }
