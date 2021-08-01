@@ -33,6 +33,8 @@ export default {
 	align-items: flex-end;
 	justify-content: space-around;
 
+	width: 200px;
+
 	select {
 		width: fit-content;
 	}
