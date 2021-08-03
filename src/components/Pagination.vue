@@ -14,7 +14,8 @@ export default {
 	name: 'Pagination',
 	props: {
 		currentPage: Number,
-		maxPage: Number
+		totalItems: Number,
+		rowsPerPage: Number
 	},
 	data() {
 		return {
@@ -28,6 +29,9 @@ export default {
 	async created() {
 	},
 	computed: {
+		maxPage() {
+			return Math.trunc(this.totalItems / this.rowsPerPage);
+		}
 	}
 }
 </script>

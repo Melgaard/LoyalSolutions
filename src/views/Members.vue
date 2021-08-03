@@ -13,7 +13,7 @@
 		</tr>
 	</table>
 
-	<Pagination @goto="gotoPage" :currentPage="currentPage" :maxPage="maxPage" />
+	<Pagination @goto="gotoPage" :currentPage="currentPage" :totalItems="members.length" :rowsPerPage="rowsPerPage"/>
 
 </div>
 </template>
@@ -46,9 +46,7 @@ export default {
 		displayedMembers() {
 			return this.members.slice((this.currentPage - 1) * this.rowsPerPage, this.currentPage * this.rowsPerPage)
 		},
-		maxPage() {
-			return Math.trunc(this.members.length / 10);
-		}
+		
 	}
 }
 </script>
