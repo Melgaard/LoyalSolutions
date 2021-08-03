@@ -1,24 +1,28 @@
 <template>
-  <div class="signup">
-    <div class="input">
-		<label>Name:</label>
-		<input type="text" v-model="name" placeholder="Name"/>
-	</div>
-	<div class="input">
-		<label>Lastname:</label>
-		<input type="text" v-model="last_name" placeholder="Lastname"/>
-	</div>
-	<div class="input">
-		<label>Email:</label>
-		<input type="text" v-model="email" placeholder="Email"/>
-	</div>
-	<div class="input">
-		<label>Confirm email:</label>
-		<input type="text" v-model="emailConfirmation" placeholder="Name"/>
-	</div>
+	<div class="signup">
+		<div>
+			<div class="input">
+				<label>Name:</label>
+				<input type="text" v-model="name" placeholder="Name"/>
+			</div>
+			<div class="input">
+				<label>Lastname:</label>
+				<input type="text" v-model="last_name" placeholder="Lastname"/>
+			</div>
+		</div>
+		<div>
+			<div class="input">
+				<label>Email:</label>
+				<input type="text" v-model="email" placeholder="Email"/>
+			</div>
+			<div class="input">
+				<label>Confirm email:</label>
+				<input type="text" v-model="emailConfirmation" placeholder="Name"/>
+			</div>
+		</div>
 
-	<div @click="submit" :class="['submitButton', validated ? 'active' : 'disabled']">Submit</div>
-  </div>
+		<div @click="submit" :class="['submitButton', validated ? 'active' : 'disabled']">Submit</div>
+	</div>
 </template>
 
 <script>
@@ -74,29 +78,33 @@ export default {
 	flex-direction: column;
 	align-items: center;
 
-	.input {
+	div {
 		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
-		padding: 10px;
 
-		input {
-			width: 150px;
-			height: 25px;
-			font-size: 16px;
-			margin-top: 5px;
-			border-radius: 16px;
-			padding-left: 10px;
+		.input {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			padding: 10px;
 
-			&:focus-visible {
-				outline: none;
-				border-color: #42b883;
-				border-style: solid;
+			input {
+				width: 170px;
+				height: 30px;
+				font-size: 16px;
+				margin-top: 5px;
+				border-radius: 16px;
+				padding-left: 10px;
+
+				&:focus-visible {
+					outline: none;
+					border-color: #42b883;
+					border-style: solid;
+				}
 			}
-		}
 
-		label {
-			padding-right: 10px;
+			label {
+				padding-right: 10px;
+			}
 		}
 	}
 
