@@ -15,6 +15,10 @@ export default {
 	components: {
 		Header,
 		Footer
+	},
+	mounted() {
+		//Make sure inital language matches url
+		this.$i18n.locale = this.$route.params.lang;
 	}
 }
 </script>

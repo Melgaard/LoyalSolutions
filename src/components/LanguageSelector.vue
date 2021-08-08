@@ -3,7 +3,7 @@
 		<select v-model="$i18n.locale" @change="updateURL">
 			<option v-for="lang in languages" v-bind:key="lang">{{lang}}</option>
 		</select>
-		locale: {{$t('message')}} <!-- TODO: fix translations to come from file-->
+		locale: {{$t('paragraph')}}
 	</div>
 </template>
 
